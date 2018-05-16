@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Js</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="title" class="text-center">{{title}}</h1>
+
+    <h2 id="subtitle" class="text-center">
+        <span v-bind:title="message">Pasa por encima mio el mouse y observa un mensaje dinamico</span>
+    </h2>
+
+    <div class="line"></div>
+
+    <main class="text-center">
+        <h3>-- Two way Data-Binding --</h3>
+        <p>La calificación es: {{calificacion}}</p>
+        <input type="text" v-model="calificacion">
+
+        <h3>-- Conditionals --</h3>
+        <p v-if="calificacion && calificacion > 5 && calificacion < 10">Aprobastes</p>
+        <p v-else-if="calificacion && calificacion >= 10">Excelente</p>
+        <p v-else>Reprobaste</p>
+
+        <div class="space"></div>
+        <h3>-- Loops --</h3>
+        <p>Lista de celulares</p>
+        <ol>
+            <li v-for="celular in celulares">{{celular}}</li>
+        </ol>
+
+        <div class="space"></div>
+        <h3>-- Events --</h3>
+        <p>Agregar celulares</p>
+        <input type="text" placeholder="Celular" v-model="celularNuevo">
+        <div class="btn-custom" v-on:click="addCelular()">Agregar</div>
+
+        <p>Eliminar celulares</p>
+        <select v-model="celularEliminar">
+            <option disabled value="">Selecciona el celular a eliminar</option>
+            <option v-for="celular in celulares">{{celular}}</option>
+        </select>
+        <p>Eliminar: {{celularEliminar}}</p>
+        <div class="btn-custom" v-on:click="deleteCelular()">Eliminar</div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

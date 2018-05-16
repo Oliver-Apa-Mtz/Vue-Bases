@@ -29,23 +29,32 @@
         <div class="space"></div>
         <h3>-- Loops --</h3>
         <p>Lista de celulares</p>
-        <ol>
+        <ul>
             <li v-for="celular in celulares">{{celular}}</li>
-        </ol>
+        </ul>
 
         <div class="space"></div>
         <h3>-- Events --</h3>
         <p>Agregar celulares</p>
         <input type="text" placeholder="Celular" v-model="celularNuevo">
         <div class="btn-custom" v-on:click="addCelular()">Agregar</div>
-
         <p>Eliminar celulares</p>
-        <select v-model="celularEliminar">
-            <option disabled value="">Selecciona el celular a eliminar</option>
-            <option v-for="celular in celulares">{{celular}}</option>
-        </select>
-        <p>Eliminar: {{celularEliminar}}</p>
-        <div class="btn-custom" v-on:click="deleteCelular()">Eliminar</div>
+        <ul>
+            <li v-for="(celular, index) in celulares">
+                {{celular}}
+                <div v-on:click="deleteCelular(index)">X</div>
+            </li>
+        </ul>
+
+        <div class="space"></div>
+        <h3>-- Computed Properties --</h3>
+        <p>El nombre es: {{name}}</p>
+        <p>El nombre oficial es: {{nameReverse}}</p>
+
+        <div class="space"></div>
+        <h3>-- Filters --</h3>
+        <p>{{name}}</p>
+        <p>{{name | mayusculas}}</p>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

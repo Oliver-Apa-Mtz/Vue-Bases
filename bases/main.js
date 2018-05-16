@@ -1,3 +1,7 @@
+//filtro global
+Vue.filter('mayusculas2',(value) => value.toUpperCase());
+
+//instancias
 var title = new Vue({
     el: '#title',
     data: {
@@ -12,21 +16,31 @@ var subtitle = new Vue({
     }
 });
 
-var main = new Vue({
+new Vue({
     el: 'main',
     data: {
         calificacion: 5,
         celulares: ['Iphone', 'HTC', 'Sony', 'Samsung', 'Motorola'],
         celularNuevo: '',
-        celularEliminar: ''
+        name: 'Juan Alberto Ramos'
     },
     methods: {
         addCelular(){
             this.celulares.push(this.celularNuevo);
             this.celularNuevo = '';
         },
-        deleteCelular(){
-            this.celulares.pop(this.celularEliminar);
+        deleteCelular(index){
+            this.celulares.splice(index,1);
         }
+    },
+    computed: {
+        nameReverse: function(){
+            let name = this.name.split(' ');
+            return `${name[1]} ${name[2]} ${name[0]}`;
+        }
+    },
+    //filtros en local
+    filters: {
+        mayusculas: (value) => value.toUpperCase()
     }
 });

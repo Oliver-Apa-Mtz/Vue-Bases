@@ -15,17 +15,18 @@
     background: linear-gradient(90deg,#08C299, #090089);
 }
 .space{
-    margin: 40px 0;
+    margin: 100px 0;
 }
 body{
     background: #EFF0F4;
     font-family: 'Raleway', sans-serif;
     font-size: 10px;
+    padding: 50px 30px;
 }
 h1{
     color: #08C299;
     font-size: 3rem;
-    margin: 30px 0;
+    margin: 0px 0 30px;
 }
 h2{
     color: #090089;
@@ -43,8 +44,24 @@ p{
 li{
     color: #232931;
     font-size: 1.1rem;
+    position: relative;
+    text-align: center;
+    list-style: none;
 }
-input, select{
+li div{
+    width: 60px;
+    height: 30px;
+    margin: 2px auto 10px;
+    background: #F67280;
+    color: white;
+    padding-top: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+li div:hover{
+    background: #FF4057;
+}
+input{
     width: 400px;
     height: 40px;
     border-radius: 4px;
@@ -57,7 +74,7 @@ input, select{
     padding: 0 20px;
     margin: 20px 0;
 }
-input:focus, select:focus{
+input:focus{
     border: none;
     box-shadow: 0px 10px 50px rgba(0, 0, 0,.15);
     outline: none;
